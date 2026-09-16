@@ -1,86 +1,59 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PizzaGo — Haqiqiy Pitsa Mazasi</title>
-    <!-- CSS faylini ulash -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notebook Market</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigatsiya paneli -->
-    <header>
-        <a href="#" class="logo">Pizza<span>Go</span></a>
-        <button class="cart-btn" onclick="toggleCart()">Savatcha (<span id="cart-count">0</span>)</button>
-    </header>
+<header>
+    <div class="logo">Notebook Market</div>
 
-    <!-- Asosiy Banner -->
-    <section class="hero">
-        <h1>Issiq va Mazali Pitsalar!</h1>
-        <p>PizzaGo bilan buyurtmangiz 30 daqiqada uyingizda bo'ladi.</p>
-    </section>
-
-    <!-- Menyu qismi -->
-    <main class="container">
-        <h2 class="section-title">Bizning Menyu</h2>
-        
-        <div class="pizza-grid">
-            <!-- Pitsa 1 -->
-            <div class="pizza-card">
-                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=500&q=80" alt="Pepperoni" class="pizza-img">
-                <div class="pizza-info">
-                    <h3 class="pizza-name">Pepperoni</h3>
-                    <p class="pizza-desc">Maxsus sous, pepperoni kolbasasi va zaytun moyi bilan tayyorlangan afsonaviy pitsa.</p>
-                    <div class="pizza-footer">
-                        <span class="pizza-price">65 000 so'm</span>
-                        <button class="add-to-cart" onclick="addToCart('Pepperoni', 65000)">Qo'shish</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pitsa 2 -->
-            <div class="pizza-card">
-                <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?auto=format&fit=crop&w=500&q=80" alt="Margarita" class="pizza-img">
-                <div class="pizza-info">
-                    <h3 class="pizza-name">Margarita</h3>
-                    <p class="pizza-desc">Motsarella pishlog'i, yangi pomidorlar va rayhon barglari bilan klassik tanlov.</p>
-                    <div class="pizza-footer">
-                        <span class="pizza-price">55 000 so'm</span>
-                        <button class="add-to-cart" onclick="addToCart('Margarita', 55000)">Qo'shish</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pitsa 3 -->
-            <div class="pizza-card">
-                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Kombinatsiyalashgan" class="pizza-img">
-                <div class="pizza-info">
-                    <h3 class="pizza-name">Kombinatsiyalashgan</h3>
-                    <p class="pizza-desc">Go'sht, qo'ziqorin, bolgar qalampiri va pishloqning ajoyib uyg'unligi.</p>
-                    <div class="pizza-footer">
-                        <span class="pizza-price">75 000 so'm</span>
-                        <button class="add-to-cart" onclick="addToCart('Kombinatsiyalashgan', 75000)">Qo'shish</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Savatcha Modali (Oyna) -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <span class="close-cart" onclick="toggleCart()">&times;</span>
-            <h2>Sizning savatchangiz</h2>
-            <div class="cart-items" id="cartItems">
-                <p style="text-align: center; color: #999;">Savatchangiz hozircha bo'sh.</p>
-            </div>
-            <h3>Jami: <span id="cart-total">0</span> so'm</h3>
-            <button class="checkout-btn" onclick="checkout()">Buyurtma berish</button>
-        </div>
+    <div class="search">
+        <input type="text" placeholder="Noutbuk qidirish...">
+        <button>🔍</button>
     </div>
 
-    <!-- JS faylini ulash -->
-    <script src="script.js"></script>
+    <div class="icons">
+        <span>❤️</span>
+        <span>🛒</span>
+        <span>👤</span>
+    </div>
+</header>
+
+<section class="products">
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500">
+        <h3>HP Victus</h3>
+        <p>12 999 000 so'm</p>
+        <button>Savatga qo'shish</button>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=500">
+        <h3>ASUS TUF Gaming</h3>
+        <p>15 499 000 so'm</p>
+        <button>Savatga qo'shish</button>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=500">
+        <h3>Lenovo LOQ</h3>
+        <p>13 299 000 so'm</p>
+        <button>Savatga qo'shish</button>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500">
+        <h3>Dell Inspiron</h3>
+        <p>11 799 000 so'm</p>
+        <button>Savatga qo'shish</button>
+    </div>
+
+</section>
+
 </body>
 </html>
