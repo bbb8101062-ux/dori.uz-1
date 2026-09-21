@@ -1,59 +1,556 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notebook Market</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build products that move money</title>
+  
+  <!-- Подключение шрифта Inter и иконок FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ================= СБРОС И ОСНОВНЫЕ СТИЛИ ================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #111827;
+      background-color: #ffffff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= КНОПКИ И ССЫЛКИ ================= */
+    .btn-emerald {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #065f46;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-emerald:hover {
+      background-color: #044e38;
+    }
+
+    .btn-light-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #a7f3d0;
+      color: #064e3b;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-light-green:hover {
+      background-color: #6ee7b7;
+    }
+
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #059669;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .link-arrow:hover {
+      text-decoration: underline;
+    }
+
+    .tag-label {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #a7f3d0;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* ================= 1. HERO SECTION ================= */
+    .hero {
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #111827;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-desc {
+      color: #4b5563;
+      font-size: 16px;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .hero-card {
+      background-color: #f3f4f6;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-card-caption {
+      padding: 12px;
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    /* ================= 2. STATS SECTION ================= */
+    .stats {
+      padding: 80px 0;
+      text-align: center;
+      border-top: 1px solid #f3f4f6;
+    }
+
+    .stats-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .stats-highlight {
+      color: #059669;
+    }
+
+    .stats-subtitle {
+      color: #6b7280;
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    /* ================= 3. DARK BANNER ================= */
+    .dark-banner {
+      background-color: #1f2937;
+      color: #ffffff;
+      padding: 64px 0;
+    }
+
+    .dark-banner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .banner-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .banner-desc {
+      color: #9ca3af;
+      font-size: 15px;
+      margin-bottom: 32px;
+      max-width: 440px;
+    }
+
+    .banner-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .banner-img-container {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner-img-container img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ================= 4. GREEN PRODUCTS SECTION ================= */
+    .products-section {
+      background-color: #043d2e;
+      color: #ffffff;
+      padding: 96px 0;
+    }
+
+    .products-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 80px auto;
+    }
+
+    .products-header h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .products-header p {
+      color: #a7f3d0;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    .product-row {
+      display: flex;
+      margin-bottom: 80px;
+    }
+
+    .product-row.align-right {
+      justify-content: flex-end;
+    }
+
+    .product-card {
+      max-width: 480px;
+    }
+
+    .product-card h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .product-card p {
+      color: #d1fae5;
+      font-size: 15px;
+      opacity: 0.85;
+      margin-bottom: 24px;
+    }
+
+    /* ================= 5. USE CASES SECTION ================= */
+    .use-cases {
+      padding: 96px 0;
+      background-color: #ffffff;
+    }
+
+    .use-cases-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .use-cases-header h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .use-cases-header p {
+      color: #6b7280;
+      font-size: 15px;
+    }
+
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .use-case-item {
+      text-align: center;
+    }
+
+    .use-case-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #059669;
+      font-size: 20px;
+    }
+
+    .use-case-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .use-case-item p {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      background-color: #111827;
+      height: 64px;
+    }
+
+    /* ================= АДАПТИВНОСТЬ (RESPONSIVE) ================= */
+    @media (max-width: 768px) {
+      .hero-grid,
+      .dark-banner-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .use-cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-row.align-right {
+        justify-content: flex-start;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .use-cases-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">Notebook Market</div>
-
-    <div class="search">
-        <input type="text" placeholder="Noutbuk qidirish...">
-        <button>🔍</button>
+  <!-- 1. HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-title">Build products that move money</h1>
+          <p class="hero-desc">
+            Modern infrastructure, programmatic accounts, and modern cards allow you to build any financial feature into your product, moving money anywhere.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="btn-emerald">
+              Explore Products <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#" class="link-arrow">
+              Talk to sales <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="hero-card">
+            <img src="https://images.unsplash.com/photo-1556742049-0a67e88383a8?auto=format&fit=crop&w=800&q=80" alt="Dashboard Preview">
+            <div class="hero-card-caption">
+              Multi-account program management
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="icons">
-        <span>❤️</span>
-        <span>🛒</span>
-        <span>👤</span>
+  <!-- 2. STATS SECTION -->
+  <section class="stats">
+    <div class="container">
+      <h2 class="stats-title">
+        Over <span class="stats-highlight">$1B</span> Movement Monthly
+      </h2>
+      <p class="stats-subtitle">
+        Trusted by leading modern financial companies worldwide.
+      </p>
+      <a href="#" class="link-arrow">
+        Read customer stories <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </div>
-</header>
+  </section>
 
-<section class="products">
-
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500">
-        <h3>HP Victus</h3>
-        <p>12 999 000 so'm</p>
-        <button>Savatga qo'shish</button>
+  <!-- 3. DARK BANNER -->
+  <section class="dark-banner">
+    <div class="container">
+      <div class="dark-banner-grid">
+        <div>
+          <div class="tag-label">PROGRAMMATIC ACCOUNTS & CARDS</div>
+          <h2 class="banner-title">Money's Next Move</h2>
+          <p class="banner-desc">
+            Issue cards, manage programmatic accounts, and send and receive payments seamlessly. Build financial products at scale with flexible APIs and global coverage.
+          </p>
+          <div class="banner-actions">
+            <a href="#" class="btn-light-green">
+              Explore Products <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#" style="color: #ffffff; font-size: 14px; font-weight: 500;">
+              Contact sales
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="banner-img-container">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Cards Overview">
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=500">
-        <h3>ASUS TUF Gaming</h3>
-        <p>15 499 000 so'm</p>
-        <button>Savatga qo'shish</button>
+  <!-- 4. GREEN PRODUCTS SECTION -->
+  <section class="products-section">
+    <div class="container">
+      <div class="products-header">
+        <h2>Our Products</h2>
+        <p>
+          Financial infrastructure designed for developer productivity and seamless scalability. Everything you need to move money smoothly and efficiently.
+        </p>
+      </div>
+
+      <!-- Item 1 (Right) -->
+      <div class="product-row align-right">
+        <div class="product-card">
+          <div class="tag-label">PAYMENTS</div>
+          <h3>Move money faster</h3>
+          <p>
+            Direct integrations with payment rails enable instant transfers, lower fees, and real-time tracking across all your accounts.
+          </p>
+          <a href="#" class="btn-light-green">
+            Explore Payments <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 2 (Left) -->
+      <div class="product-row">
+        <div class="product-card">
+          <div class="tag-label">VIRTUAL CARDS</div>
+          <h3>Reconcile payments, automatically</h3>
+          <p>
+            Automated ledgers and matching engine keep track of all incoming and outgoing funds without manual intervention.
+          </p>
+          <a href="#" class="btn-light-green">
+            Explore Virtual Cards <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 3 (Right) -->
+      <div class="product-row align-right">
+        <div class="product-card">
+          <div class="tag-label">ACCOUNTS</div>
+          <h3>Track balances in real time</h3>
+          <p>
+            Complete visibility over your funds with programmable multi-currency balance tracking and automatic alerts.
+          </p>
+          <a href="#" class="btn-light-green">
+            Explore Accounts <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=500">
-        <h3>Lenovo LOQ</h3>
-        <p>13 299 000 so'm</p>
-        <button>Savatga qo'shish</button>
+  <!-- 5. USE CASES SECTION -->
+  <section class="use-cases">
+    <div class="container">
+      <div class="use-cases-header">
+        <h2>Use Cases</h2>
+        <p>Explore how modern businesses rely on our infrastructure.</p>
+      </div>
+
+      <div class="use-cases-grid">
+        <div class="use-case-item">
+          <div class="use-case-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+          <h3>Corporate Expense</h3>
+          <p>Issue corporate cards with custom spend controls and real-time alerts.</p>
+        </div>
+
+        <div class="use-case-item">
+          <div class="use-case-icon"><i class="fa-solid fa-wallet"></i></div>
+          <h3>Neobanking Services</h3>
+          <p>Build custom bank-like experiences with virtual accounts and card issuing.</p>
+        </div>
+
+        <div class="use-case-item">
+          <div class="use-case-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Lending Platforms</h3>
+          <p>Automate loan payouts and streamline recurring collection processes.</p>
+        </div>
+
+        <div class="use-case-item">
+          <div class="use-case-icon"><i class="fa-solid fa-store"></i></div>
+          <h3>Marketplaces</h3>
+          <p>Split payments, automate seller payouts, and hold escrow funds securely.</p>
+        </div>
+
+        <div class="use-case-item">
+          <div class="use-case-icon"><i class="fa-solid fa-receipt"></i></div>
+          <h3>Payroll Solutions</h3>
+          <p>Execute global employee and contractor payments efficiently on schedule.</p>
+        </div>
+
+        <div class="use-case-item">
+          <div class="use-case-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3>Cross-Border Payments</h3>
+          <p>Send international transfers seamlessly with competitive FX rates.</p>
+        </div>
+
+        <div class="use-case-item">
+          <div class="use-case-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Treasury Management</h3>
+          <p>Optimize yield and liquidity across multiple banking partners.</p>
+        </div>
+
+        <div class="use-case-item">
+          <div class="use-case-icon"><i class="fa-solid fa-coins"></i></div>
+          <h3>Crypto Gateway</h3>
+          <p>Bridge fiat and crypto ecosystems with compliant payment infrastructure.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500">
-        <h3>Dell Inspiron</h3>
-        <p>11 799 000 so'm</p>
-        <button>Savatga qo'shish</button>
-    </div>
-
-</section>
+  <!-- FOOTER -->
+  <footer class="footer"></footer>
 
 </body>
 </html>
